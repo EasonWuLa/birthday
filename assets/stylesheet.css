@@ -1356,17 +1356,37 @@ audio {
 		zoom: 0.72;
 	}
 	.message {
-		margin-top: 16px;
-		padding: 0 8px 12px;
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 46%;
+		width: 100%;
+		max-width: 100vw;
+		margin: 0;
+		padding: 0 16px;
+		box-sizing: border-box;
+		text-align: center;
+		z-index: 40;
+		transform: none;
 	}
+	#texts-container,
 	.message p {
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		float: none !important;
+		text-align: center !important;
 		font-size: 22px;
 		line-height: 1.45;
 		word-break: break-word;
 	}
 	.message p img {
-		max-width: 68%;
+		display: block !important;
+		float: none !important;
+		width: auto;
+		max-width: 62vw;
 		max-height: 32vh;
+		margin: 10px auto 0 !important;
 	}
 	.navbar-fixed-bottom {
 		left: 0;

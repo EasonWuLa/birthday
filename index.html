@@ -26,7 +26,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE"/>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css?v=4">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css?v=5">
     <link rel="stylesheet" type="text/css" href="assets/loading.css">
     <link rel="stylesheet/less" href="assets/cake.less">
     <script src="assets/less.min.js"></script>
@@ -152,6 +152,31 @@
 		-webkit-transform: none !important;
 		transform: none !important;
 		zoom: 0.72;
+	}
+	.message {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 46%;
+		width: 100%;
+		max-width: 100vw;
+		margin: 0;
+		padding: 0 16px;
+		box-sizing: border-box;
+		text-align: center;
+		z-index: 40;
+	}
+	#texts-container,
+	.message p {
+		width: 100% !important;
+		text-align: center !important;
+	}
+	.message p img {
+		display: block !important;
+		width: auto;
+		max-width: 62vw;
+		max-height: 32vh;
+		margin: 10px auto 0 !important;
 	}
 }
 @media (max-width: 360px) {

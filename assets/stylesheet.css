@@ -1311,9 +1311,105 @@ audio {
 
 
 
-    /*controlling tablet width*/
-    /*@media only screen and (max-width: 720px){
-    	.container {
-    		-webkit-transform: scale(0.9);
-    	}
-    }*/
+@media (max-width: 767px) {
+	html, body {
+		width: 100%;
+		overflow-x: hidden;
+	}
+	.container {
+		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 84px;
+	}
+	.container > .row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.bulb-holder {
+		height: 48px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.bulb {
+		width: 36px;
+		height: 36px;
+		background-size: 36px 36px;
+	}
+	.bannar {
+		width: 92%;
+		height: auto;
+	}
+	.cake {
+		-webkit-transform: scale(0.75);
+		transform: scale(0.75);
+		-webkit-transform-origin: top center;
+		transform-origin: top center;
+	}
+	.message {
+		margin-top: 16px;
+		padding: 0 8px 12px;
+	}
+	.message p {
+		font-size: 22px;
+		line-height: 1.45;
+		word-break: break-word;
+	}
+	.message p img {
+		max-width: 68%;
+		max-height: 32vh;
+	}
+	.navbar-fixed-bottom {
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: auto;
+		min-height: 0;
+		padding: 8px 12px calc(12px + env(safe-area-inset-bottom));
+		background: rgba(0, 0, 0, 0.35);
+		border: 0;
+		box-sizing: border-box;
+	}
+	.navbar-fixed-bottom .row,
+	.navbar-fixed-bottom [class*="col-"] {
+		margin-left: 0;
+		margin-right: 0;
+		left: auto;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		float: none;
+	}
+	.navbar-fixed-bottom .btn {
+		display: inline-block;
+		max-width: 100%;
+		white-space: normal;
+		font-size: 15px;
+		line-height: 1.35;
+		padding: 8px 16px;
+		box-sizing: border-box;
+	}
+	.balloon-border {
+		left: 0;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+	.balloons h2 {
+		text-shadow: 2px 2px 3px #fff;
+	}
+}
+@media (max-width: 360px) {
+	.cake {
+		-webkit-transform: scale(0.62);
+		transform: scale(0.62);
+	}
+	.bulb {
+		width: 30px;
+		height: 30px;
+		background-size: 30px 30px;
+	}
+	.message p {
+		font-size: 20px;
+	}
+}

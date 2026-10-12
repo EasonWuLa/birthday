@@ -1314,7 +1314,8 @@ audio {
 @media (max-width: 767px) {
 	html, body {
 		width: 100%;
-		overflow-x: hidden;
+		overflow-x: clip;
+		overflow-y: visible;
 	}
 	.container {
 		width: 100%;
@@ -1340,14 +1341,19 @@ audio {
 		width: 92%;
 		height: auto;
 	}
-	.cake-cover {
-		min-height: 260px;
+	.cake-cover,
+	.cake-cover > div {
+		overflow: visible;
 	}
 	.cake {
-		-webkit-transform: scale(0.75);
-		transform: scale(0.75);
-		-webkit-transform-origin: top center;
-		transform-origin: top center;
+		position: relative !important;
+		left: auto !important;
+		top: auto !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		zoom: 0.72;
 	}
 	.message {
 		margin-top: 16px;
@@ -1404,8 +1410,7 @@ audio {
 }
 @media (max-width: 360px) {
 	.cake {
-		-webkit-transform: scale(0.62);
-		transform: scale(0.62);
+		zoom: 0.62;
 	}
 	.bulb {
 		width: 30px;

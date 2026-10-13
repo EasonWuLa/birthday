@@ -212,26 +212,47 @@ $('document').ready(function(){
 		$(this).fadeOut('slow');
 		$('.cake').fadeOut('fast').promise().done(function(){
 			$('.message').fadeIn('slow');
+			playAlbum();
 		});
-		
-		var i;
-		var total = $(".message p").length;
+	});
 
-		function msgLoop (i) {
-			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
-			i=i+1;
-			if(i > total){
-				$('.cake').fadeIn('fast');
+	function playAlbum() {
+		var pages = $('.album-page');
+		var pageIndex = 0;
+		var lineIndex = 0;
+		var hold = 3600;
+
+		function linesOf(page) {
+			try {
+				return JSON.parse(page.getAttribute('data-lines') || '[]');
+			} catch (e) {
+				return [];
+			}
+		}
+
+		function showLine() {
+			var page = pages.eq(pageIndex);
+			var lines = linesOf(page[0]);
+			var caption = page.find('.album-caption');
+			caption.stop(true, true).css('opacity', 0).text(lines[lineIndex] || '').animate({opacity: 1}, 360);
+			lineIndex += 1;
+			if (lineIndex < lines.length) {
+				setTimeout(showLine, hold);
 				return;
 			}
-			$("p:nth-child("+i+")").fadeIn('slow').delay(3200);
-			msgLoop(i);
-		});
+			if (pageIndex >= pages.length - 1) {
+				return;
+			}
+			setTimeout(function () {
+				page.addClass('turned');
+				pageIndex += 1;
+				lineIndex = 0;
+				setTimeout(showLine, 1100);
+			}, hold);
 		}
-		
-		msgLoop(0);
-		
-	});
+
+		showLine();
+	}
 });
 
 

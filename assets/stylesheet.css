@@ -1296,6 +1296,72 @@ audio {
 	box-shadow: rgba(124, 72, 58, 0.28) 0 8px 18px;
 }
 
+.album-stage {
+	position: relative;
+	width: min(78vw, 340px);
+	height: min(58vh, 460px);
+	margin: 0 auto;
+	perspective: 1600px;
+}
+.album-page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform-origin: left center;
+	transition: transform 1.05s ease;
+}
+.album-page.turned {
+	transform: rotateY(-175deg);
+}
+.album-sheet {
+	position: relative;
+	height: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 16px 34px 24px;
+	background: linear-gradient(180deg, #fffaf6 0%, #f6eee6 100%);
+	border: 1px solid rgba(198, 161, 91, 0.55);
+	border-radius: 4px 18px 18px 4px;
+	box-shadow: 0 14px 30px rgba(92, 48, 42, 0.18), inset 10px 0 14px rgba(124, 48, 68, 0.05);
+	backface-visibility: hidden;
+	overflow: hidden;
+}
+.album-sheet img {
+	width: 86%;
+	height: 54%;
+	object-fit: cover;
+	border-radius: 12px;
+	margin-bottom: 14px;
+	box-shadow: rgba(124, 72, 58, 0.22) 0 8px 16px;
+}
+.album-caption {
+	margin: 0;
+	min-height: 1.5em;
+	color: #7C3044;
+	font-family: "Signika", "Songti SC", serif;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.45;
+	text-align: center;
+}
+.album-sheet-text .album-caption {
+	font-size: 28px;
+	padding: 0 8px;
+}
+.album-index {
+	position: absolute;
+	right: 14px;
+	bottom: 10px;
+	color: rgba(124, 48, 68, 0.5);
+	font-size: 12px;
+	letter-spacing: 0.08em;
+}
+
 .btn-primary {
         border-color: #C6A15B;
         padding: 10px;
@@ -1365,34 +1431,16 @@ audio {
 		position: fixed;
 		left: 0;
 		right: 0;
-		top: 46%;
+		top: 32%;
 		width: 100%;
-		max-width: 100vw;
 		margin: 0;
-		padding: 0 16px;
+		padding: 0 18px;
 		box-sizing: border-box;
-		text-align: center;
 		z-index: 40;
-		transform: none;
 	}
-	#texts-container,
-	.message p {
-		width: 100% !important;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-		float: none !important;
-		text-align: center !important;
-		font-size: 22px;
-		line-height: 1.45;
-		word-break: break-word;
-	}
-	.message p img {
-		display: block !important;
-		float: none !important;
-		width: auto;
-		max-width: 62vw;
-		max-height: 32vh;
-		margin: 10px auto 0 !important;
+	.album-stage {
+		width: min(84vw, 340px);
+		height: min(52vh, 430px);
 	}
 	.navbar-fixed-bottom {
 		left: 0;

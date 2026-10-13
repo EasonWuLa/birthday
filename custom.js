@@ -1,18 +1,39 @@
 // 霸都丶傲天 2019.10.10
 $(function () {
-    let dom = document.createElement("span");
-    config.texts.forEach(function (item) {
-        let p = document.createElement("p");
-        p.innerHTML = item;
-        if (config.imgs && config.imgs[item]) {
-            let img = document.createElement("img");
-            img.src = config.imgs[item];
-            img.setAttribute("class", 'text-img');
-            p.appendChild(img);
-        }
-        dom.appendChild(p);
-    });
-    $("#texts-container").append(dom.innerHTML);
+    var images = config.albumImages || [];
+    var texts = config.texts || [];
+    var pageCount = images.length || 1;
+    var base = Math.floor(texts.length / pageCount);
+    var extra = texts.length % pageCount;
+    var stage = document.createElement("div");
+    var cursor = 0;
+    stage.className = "album-stage";
+    for (var p = 0; p < pageCount; p++) {
+        var count = base + (p < extra ? 1 : 0);
+        var lines = texts.slice(cursor, cursor + count);
+        cursor += count;
+        var page = document.createElement("div");
+        var sheet = document.createElement("div");
+        var img = document.createElement("img");
+        var caption = document.createElement("div");
+        var num = document.createElement("div");
+        page.className = "album-page";
+        page.style.zIndex = String(pageCount - p);
+        page.setAttribute("data-lines", JSON.stringify(lines));
+        sheet.className = "album-sheet";
+        img.src = images[p];
+        img.alt = lines[0] || "";
+        caption.className = "album-caption";
+        caption.textContent = lines[0] || "";
+        num.className = "album-index";
+        num.textContent = (p + 1) + " / " + pageCount;
+        sheet.appendChild(img);
+        sheet.appendChild(caption);
+        sheet.appendChild(num);
+        page.appendChild(sheet);
+        stage.appendChild(page);
+    }
+    $("#texts-container").append(stage);
 });
 
 $(function () {

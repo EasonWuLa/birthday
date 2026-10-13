@@ -1509,77 +1509,109 @@ audio {
 }
 #bulb_yellow.bulb-glow-yellow,
 #bulb_yellow.bulb-glow-yellow-after {
-	-webkit-filter: drop-shadow(0 0 7px #ffe14a) drop-shadow(0 0 16px rgba(255, 176, 0, 0.95));
-	filter: drop-shadow(0 0 7px #ffe14a) drop-shadow(0 0 16px rgba(255, 176, 0, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(255, 214, 90, 0.42));
+	filter: drop-shadow(0 0 5px rgba(255, 214, 90, 0.42));
 }
 #bulb_red.bulb-glow-red,
 #bulb_red.bulb-glow-red-after {
-	-webkit-filter: drop-shadow(0 0 7px #ff5a5a) drop-shadow(0 0 16px rgba(255, 30, 60, 0.95));
-	filter: drop-shadow(0 0 7px #ff5a5a) drop-shadow(0 0 16px rgba(255, 30, 60, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(255, 96, 96, 0.4));
+	filter: drop-shadow(0 0 5px rgba(255, 96, 96, 0.4));
 }
 #bulb_blue.bulb-glow-blue,
 #bulb_blue.bulb-glow-blue-after {
-	-webkit-filter: drop-shadow(0 0 7px #5ec2ff) drop-shadow(0 0 16px rgba(40, 110, 255, 0.95));
-	filter: drop-shadow(0 0 7px #5ec2ff) drop-shadow(0 0 16px rgba(40, 110, 255, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(96, 176, 255, 0.4));
+	filter: drop-shadow(0 0 5px rgba(96, 176, 255, 0.4));
 }
 #bulb_green.bulb-glow-green,
 #bulb_green.bulb-glow-green-after {
-	-webkit-filter: drop-shadow(0 0 7px #67f08a) drop-shadow(0 0 16px rgba(20, 200, 90, 0.95));
-	filter: drop-shadow(0 0 7px #67f08a) drop-shadow(0 0 16px rgba(20, 200, 90, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(110, 220, 140, 0.4));
+	filter: drop-shadow(0 0 5px rgba(110, 220, 140, 0.4));
 }
 #bulb_pink.bulb-glow-pink,
 #bulb_pink.bulb-glow-pink-after {
-	-webkit-filter: drop-shadow(0 0 7px #ff78c0) drop-shadow(0 0 16px rgba(255, 60, 140, 0.95));
-	filter: drop-shadow(0 0 7px #ff78c0) drop-shadow(0 0 16px rgba(255, 60, 140, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(255, 130, 186, 0.4));
+	filter: drop-shadow(0 0 5px rgba(255, 130, 186, 0.4));
 }
 #bulb_orange.bulb-glow-orange,
 #bulb_orange.bulb-glow-orange-after {
-	-webkit-filter: drop-shadow(0 0 7px #ffb43a) drop-shadow(0 0 16px rgba(255, 100, 0, 0.95));
-	filter: drop-shadow(0 0 7px #ffb43a) drop-shadow(0 0 16px rgba(255, 100, 0, 0.95));
+	-webkit-filter: drop-shadow(0 0 5px rgba(255, 176, 72, 0.4));
+	filter: drop-shadow(0 0 5px rgba(255, 176, 72, 0.4));
 }
+#bulb_yellow.bulb-glow-yellow-after,
+#bulb_red.bulb-glow-red-after,
+#bulb_blue.bulb-glow-blue-after,
+#bulb_green.bulb-glow-green-after,
+#bulb_pink.bulb-glow-pink-after,
+#bulb_orange.bulb-glow-orange-after {
+	-webkit-animation: bulb_soft 3.6s ease-in-out infinite;
+	animation: bulb_soft 3.6s ease-in-out infinite;
+}
+#bulb_red.bulb-glow-red-after { -webkit-animation-delay: 0.45s; animation-delay: 0.45s; }
+#bulb_blue.bulb-glow-blue-after { -webkit-animation-delay: 0.9s; animation-delay: 0.9s; }
+#bulb_green.bulb-glow-green-after { -webkit-animation-delay: 1.35s; animation-delay: 1.35s; }
+#bulb_pink.bulb-glow-pink-after { -webkit-animation-delay: 1.8s; animation-delay: 1.8s; }
+#bulb_orange.bulb-glow-orange-after { -webkit-animation-delay: 2.25s; animation-delay: 2.25s; }
 #bulb_yellow.bulb-glow-yellow::after,
 #bulb_yellow.bulb-glow-yellow-after::after {
-	background: radial-gradient(circle, rgba(255, 226, 80, 0.95) 0%, rgba(255, 176, 0, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 1s ease-in-out infinite;
-	animation: bulb_halo 1s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(255, 220, 110, 0.38) 0%, rgba(255, 176, 0, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
 }
 #bulb_red.bulb-glow-red::after,
 #bulb_red.bulb-glow-red-after::after {
-	background: radial-gradient(circle, rgba(255, 90, 90, 0.95) 0%, rgba(255, 30, 60, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 1.2s ease-in-out infinite;
-	animation: bulb_halo 1.2s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(255, 120, 120, 0.36) 0%, rgba(255, 50, 70, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
+	-webkit-animation-delay: 0.45s;
+	animation-delay: 0.45s;
 }
 #bulb_blue.bulb-glow-blue::after,
 #bulb_blue.bulb-glow-blue-after::after {
-	background: radial-gradient(circle, rgba(94, 194, 255, 0.95) 0%, rgba(40, 110, 255, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 1.4s ease-in-out infinite;
-	animation: bulb_halo 1.4s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(120, 190, 255, 0.36) 0%, rgba(50, 120, 255, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
+	-webkit-animation-delay: 0.9s;
+	animation-delay: 0.9s;
 }
 #bulb_green.bulb-glow-green::after,
 #bulb_green.bulb-glow-green-after::after {
-	background: radial-gradient(circle, rgba(103, 240, 138, 0.95) 0%, rgba(20, 200, 90, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 1.8s ease-in-out infinite;
-	animation: bulb_halo 1.8s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(130, 230, 160, 0.36) 0%, rgba(40, 190, 100, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
+	-webkit-animation-delay: 1.35s;
+	animation-delay: 1.35s;
 }
 #bulb_pink.bulb-glow-pink::after,
 #bulb_pink.bulb-glow-pink-after::after {
-	background: radial-gradient(circle, rgba(255, 120, 192, 0.95) 0%, rgba(255, 60, 140, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 2s ease-in-out infinite;
-	animation: bulb_halo 2s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(255, 160, 200, 0.36) 0%, rgba(255, 80, 150, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
+	-webkit-animation-delay: 1.8s;
+	animation-delay: 1.8s;
 }
 #bulb_orange.bulb-glow-orange::after,
 #bulb_orange.bulb-glow-orange-after::after {
-	background: radial-gradient(circle, rgba(255, 180, 58, 0.95) 0%, rgba(255, 100, 0, 0.4) 46%, transparent 72%);
-	-webkit-animation: bulb_halo 2.2s ease-in-out infinite;
-	animation: bulb_halo 2.2s ease-in-out infinite;
+	background: radial-gradient(circle, rgba(255, 190, 90, 0.36) 0%, rgba(255, 120, 30, 0.12) 48%, transparent 72%);
+	-webkit-animation: bulb_halo 3.6s ease-in-out infinite;
+	animation: bulb_halo 3.6s ease-in-out infinite;
+	-webkit-animation-delay: 2.25s;
+	animation-delay: 2.25s;
+}
+@-webkit-keyframes bulb_soft {
+	0%, 100% { opacity: 0.82; }
+	50% { opacity: 1; }
+}
+@keyframes bulb_soft {
+	0%, 100% { opacity: 0.82; }
+	50% { opacity: 1; }
 }
 @-webkit-keyframes bulb_halo {
-	0%, 100% { opacity: 0.25; -webkit-transform: translate(-50%, -42%) scale(0.62); transform: translate(-50%, -42%) scale(0.62); }
-	50% { opacity: 1; -webkit-transform: translate(-50%, -42%) scale(1.2); transform: translate(-50%, -42%) scale(1.2); }
+	0%, 100% { opacity: 0.35; -webkit-transform: translate(-50%, -42%) scale(0.92); transform: translate(-50%, -42%) scale(0.92); }
+	50% { opacity: 0.7; -webkit-transform: translate(-50%, -42%) scale(1.04); transform: translate(-50%, -42%) scale(1.04); }
 }
 @keyframes bulb_halo {
-	0%, 100% { opacity: 0.25; -webkit-transform: translate(-50%, -42%) scale(0.62); transform: translate(-50%, -42%) scale(0.62); }
-	50% { opacity: 1; -webkit-transform: translate(-50%, -42%) scale(1.2); transform: translate(-50%, -42%) scale(1.2); }
+	0%, 100% { opacity: 0.35; -webkit-transform: translate(-50%, -42%) scale(0.92); transform: translate(-50%, -42%) scale(0.92); }
+	50% { opacity: 0.7; -webkit-transform: translate(-50%, -42%) scale(1.04); transform: translate(-50%, -42%) scale(1.04); }
 }
 #b1, #b11 { -webkit-filter: drop-shadow(0 0 12px rgba(255, 214, 60, 0.9)); filter: drop-shadow(0 0 12px rgba(255, 214, 60, 0.9)); }
 #b2, #b22 { -webkit-filter: drop-shadow(0 0 12px rgba(50, 130, 255, 0.9)); filter: drop-shadow(0 0 12px rgba(50, 130, 255, 0.9)); }

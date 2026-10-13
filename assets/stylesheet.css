@@ -1,5 +1,5 @@
 body {
-	/*background-color: #FFDAB9;	*/
+	/*background-color: #FBF3EA;	*/
 	background-color: #000;
 	-webkit-transition:background-color linear 5s;
 	-moz-transition:background-color linear 5s;
@@ -12,7 +12,7 @@ body {
 	display: none;
 }
 .peach {
-	background-color: #FFDAB9;
+	background-color: #FBF3EA;
 
 }
 .peach-after {
@@ -25,90 +25,90 @@ body {
 
 @-webkit-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #F6E4D8;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #F3EBE1;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 }
 @-moz-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #F6E4D8;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #F3EBE1;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 }
 
 @-o-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #F6E4D8;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #F3EBE1;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 }
 
 @-ms-keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #F6E4D8;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #F3EBE1;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 }
 
 @keyframes peach_alive {
 	0%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	25%{
-		background-color: #FFE4B5;
+		background-color: #F6E4D8;
 	}
 	50%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 	75%{
-		background-color: #FFEFD5;
+		background-color: #F3EBE1;
 	}
 	100%{
-		background-color: #FFDAB9;
+		background-color: #FBF3EA;
 	}
 }
 
@@ -120,6 +120,8 @@ body {
 	background-repeat: no-repeat no-repeat;
 	background-position:center 0px;
 	background-size: 50px 50px;
+	-webkit-filter: sepia(0.28) saturate(0.72);
+	filter: sepia(0.28) saturate(0.72);
 }
 
 .bulb-holder {
@@ -975,7 +977,8 @@ audio {
 	-o-transform:translate(0px,-500px);
 	-ms-transform:translate(0px,-500px);
 	transform:translate(0px,-500px);
-
+	-webkit-filter: sepia(0.35) saturate(0.65);
+	filter: sepia(0.35) saturate(0.65);
 }
 .bannar-come {
 	-webkit-animation: bannar_come linear 6s;
@@ -1084,6 +1087,8 @@ audio {
 	height: 183px;
 	background-repeat: no-repeat no-repeat;
 	background-size: 100px 183px;
+	-webkit-filter: sepia(0.22) saturate(0.7);
+	filter: sepia(0.22) saturate(0.7);
 }
 .balloons h2 {
 	text-transform: uppercase;
@@ -1275,8 +1280,8 @@ audio {
 	font-family: 'Signika', sans-serif;
 	font-size: 30px;
 	text-transform: uppercase;
-	color: #C4515C;
-	text-shadow: 2px 2px 2px #FFF;
+	color: #7C3044;
+	text-shadow: 0 1px 8px rgba(255, 248, 242, 0.9);
 	display: none;
 	font-weight: bold;
 	text-align: center;
@@ -1286,27 +1291,28 @@ audio {
 	max-width: 80%;
 	max-height: 200px;
 	margin: 5px auto;
-	border-radius: 50%;
-	box-shadow: #aaa 0 0 4px;
+	border-radius: 18px;
+	object-fit: cover;
+	box-shadow: rgba(124, 72, 58, 0.28) 0 8px 18px;
 }
 
 .btn-primary {
-        border-color: #466baf;
+        border-color: #C6A15B;
         padding: 10px;
         text-transform: uppercase;
         font-family: 'Signika', sans-serif;
         font-weight: 700;
-        color: #fff;
-        background-color: #466baf;
+        color: #FFF8F3;
+        background-color: #8E4554;
 }
     .btn-primary:hover,
     .btn-primary:focus,
     .btn-primary:active,
     .btn-primary.active,
     .open .dropdown-toggle.btn-primary {
-        border-color: #fff;
-        color: #fff;
-        background-color: #466baf;
+        border-color: #C6A15B;
+        color: #FFF8F3;
+        background-color: #7C3044;
     }
 
 
@@ -1395,7 +1401,7 @@ audio {
 		height: auto;
 		min-height: 0;
 		padding: 8px 12px calc(12px + env(safe-area-inset-bottom));
-		background: rgba(0, 0, 0, 0.35);
+		background: rgba(92, 48, 42, 0.2);
 		border: 0;
 		box-sizing: border-box;
 	}

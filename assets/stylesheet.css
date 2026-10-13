@@ -1340,24 +1340,18 @@ audio {
 	font-size: 12px;
 	letter-spacing: 0.08em;
 }
-.album-sheet img {
-	transition: filter 1.1s ease;
-}
-.album-page.closed .album-sheet img {
-	filter: brightness(0.62) saturate(0.92);
-}
 .album-close {
 	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
+	left: 18px;
+	right: 18px;
+	bottom: 22px;
+	top: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	padding: 28px 22px 36px;
-	background: linear-gradient(180deg, rgba(27, 16, 22, 0.08) 0%, rgba(27, 16, 22, 0.58) 72%);
+	justify-content: flex-end;
+	padding: 0;
+	background: none;
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 1.2s ease;
@@ -1373,28 +1367,29 @@ audio {
 .album-close div {
 	margin: 0;
 	text-align: center;
-	color: #FFF8F3;
-	text-shadow: 0 2px 12px rgba(27, 16, 22, 0.45);
 }
 .album-close-name {
-	font-family: "Songti SC", "Signika", serif;
-	font-size: 28px;
-	font-weight: 700;
-	letter-spacing: 0.12em;
+	font-family: "ZCOOL XiaoWei", "STXingkai", "华文行楷", "KaiTi", "楷体", serif;
+	font-size: 26px;
+	font-weight: 400;
+	letter-spacing: 0.28em;
+	color: #7C3044;
 }
 .album-close-wish {
-	margin-top: 10px !important;
-	font-family: "Songti SC", "Signika", serif;
-	font-size: 34px;
-	font-weight: 700;
-	letter-spacing: 0.18em;
-	color: #F6E4B4;
+	margin-top: 2px !important;
+	font-family: "Ma Shan Zheng", "STXingkai", "华文行楷", "KaiTi", "楷体", cursive;
+	font-size: 36px;
+	font-weight: 400;
+	letter-spacing: 0.2em;
+	line-height: 1.2;
+	color: #8E4554;
 }
 .album-close-stay {
-	margin-top: 14px !important;
-	font-size: 16px;
-	letter-spacing: 0.16em;
-	color: rgba(255, 248, 243, 0.86);
+	margin-top: 6px !important;
+	font-family: "ZCOOL XiaoWei", "STXingkai", "华文行楷", "KaiTi", "楷体", serif;
+	font-size: 15px;
+	letter-spacing: 0.28em;
+	color: rgba(124, 48, 68, 0.72);
 }
 
 .btn-primary {

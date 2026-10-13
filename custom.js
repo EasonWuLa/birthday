@@ -30,6 +30,13 @@ $(function () {
         sheet.appendChild(img);
         sheet.appendChild(caption);
         sheet.appendChild(num);
+        if (p === pageCount - 1) {
+            var close = document.createElement("div");
+            close.className = "album-close";
+            close.innerHTML = '<div class="album-close-name"></div><div class="album-close-wish">生日快乐</div><div class="album-close-stay">我就在这里</div>';
+            close.querySelector(".album-close-name").textContent = texts[0] || "李梦云";
+            sheet.appendChild(close);
+        }
         page.appendChild(sheet);
         stage.appendChild(page);
     }

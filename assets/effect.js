@@ -303,6 +303,11 @@ $('document').ready(function(){
 				return;
 			}
 			if (pageIndex >= pages.length - 1) {
+				setTimeout(function () {
+					caption.stop(true, true).animate({opacity: 0}, 700);
+					page.find('.album-index').fadeOut(700);
+					page.addClass('closed');
+				}, hold);
 				return;
 			}
 			setTimeout(function () {

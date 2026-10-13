@@ -1,11 +1,11 @@
 body {
 	/*background-color: #1B1016;	*/
 	background-color: #000;
-	-webkit-transition:background-color linear 5s;
-	-moz-transition:background-color linear 5s;
-	-o-transition:background-color linear 5s;
-	-ms-transition:background-color linear 5s;
-	transition:background-color linear 5s;
+	-webkit-transition:background-color linear 1.2s;
+	-moz-transition:background-color linear 1.2s;
+	-o-transition:background-color linear 1.2s;
+	-ms-transition:background-color linear 1.2s;
+	transition:background-color linear 1.2s;
 	overflow-x:hidden;
 }
 .container {
@@ -980,15 +980,15 @@ audio {
 	filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
 }
 .bannar-come {
-	-webkit-animation: bannar_come linear 6s;
+	-webkit-animation: bannar_come linear 2.2s;
 	-webkit-transform:translate(0px,0px);
-	-moz-animation: bannar_come linear 6s;
+	-moz-animation: bannar_come linear 2.2s;
 	-moz-transform:translate(0px,0px);
-	-o-animation: bannar_come linear 6s;
+	-o-animation: bannar_come linear 2.2s;
 	-o-transform:translate(0px,0px);
-	-ms-animation: bannar_come linear 6s;
+	-ms-animation: bannar_come linear 2.2s;
 	-ms-transform:translate(0px,0px);
-	animation: bannar_come linear 6s;
+	animation: bannar_come linear 2.2s;
 	transform:translate(0px,0px);
 }
 @-webkit-keyframes bannar_come {
@@ -1081,7 +1081,7 @@ audio {
 	position: fixed;
 	bottom: -200px;
 	opacity: 1;
-	z-index: 99;
+	z-index: 18;
 	width: 100px;
 	height: 183px;
 	background-repeat: no-repeat no-repeat;
@@ -1255,7 +1255,7 @@ audio {
 	position: fixed;
 	top:100%;
 	opacity: 1;
-	z-index: 9999;
+	z-index: 12;
 }
 .control-panel {
 	position: fixed;
@@ -1620,3 +1620,45 @@ audio {
 #b5, #b55 { -webkit-filter: drop-shadow(0 0 12px rgba(170, 120, 255, 0.9)); filter: drop-shadow(0 0 12px rgba(170, 120, 255, 0.9)); }
 #b6, #b66 { -webkit-filter: drop-shadow(0 0 12px rgba(230, 220, 140, 0.95)); filter: drop-shadow(0 0 12px rgba(230, 220, 140, 0.95)); }
 #b7, #b77 { -webkit-filter: drop-shadow(0 0 12px rgba(40, 230, 220, 0.9)); filter: drop-shadow(0 0 12px rgba(40, 230, 220, 0.9)); }
+
+.bulb-glow-yellow:not(.bulb-glow-yellow-after),
+.bulb-glow-red:not(.bulb-glow-red-after),
+.bulb-glow-blue:not(.bulb-glow-blue-after),
+.bulb-glow-green:not(.bulb-glow-green-after),
+.bulb-glow-pink:not(.bulb-glow-pink-after),
+.bulb-glow-orange:not(.bulb-glow-orange-after) {
+	-webkit-animation-duration: 1.4s;
+	animation-duration: 1.4s;
+}
+.cake {
+	z-index: 30;
+}
+.cake.candle-lit {
+	-webkit-filter: drop-shadow(0 0 10px rgba(255, 214, 130, 0.95)) drop-shadow(0 0 32px rgba(255, 150, 60, 0.6));
+	filter: drop-shadow(0 0 10px rgba(255, 214, 130, 0.95)) drop-shadow(0 0 32px rgba(255, 150, 60, 0.6));
+}
+.candle-flash {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 35;
+	pointer-events: none;
+	opacity: 0;
+	background: radial-gradient(circle at 50% 48%, rgba(255, 246, 220, 0.96) 0%, rgba(255, 210, 130, 0.62) 16%, rgba(255, 170, 80, 0.22) 40%, rgba(255, 150, 60, 0) 68%);
+}
+.candle-flash.bloom {
+	-webkit-animation: candle_bloom 2.1s ease-out forwards;
+	animation: candle_bloom 2.1s ease-out forwards;
+}
+@-webkit-keyframes candle_bloom {
+	0% { opacity: 0; }
+	14% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes candle_bloom {
+	0% { opacity: 0; }
+	14% { opacity: 1; }
+	100% { opacity: 0; }
+}

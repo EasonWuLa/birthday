@@ -16,8 +16,8 @@ $('document').ready(function(){
 		}
 		$(window).resize(function(){
 			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-			if ($('#b11').length) {
-				placeWishBalloons(true);
+			if (balloonsLifted || $('#b11').length) {
+				liftBalloons(false);
 			}
 		});
 
@@ -29,7 +29,7 @@ $('document').ready(function(){
 		$('#bulb_pink').addClass('bulb-glow-pink');
 		$('#bulb_orange').addClass('bulb-glow-orange');
 		$('body').addClass('peach');
-		$(this).fadeOut('slow').delay(5000).promise().done(function(){
+		$(this).fadeOut('slow').delay(1200).promise().done(function(){
 			$('#play').fadeIn('slow');
 		});
 	});
@@ -45,46 +45,50 @@ $('document').ready(function(){
 		$('#bulb_orange').addClass('bulb-glow-orange-after');
 		$('body').css('backgroud-color','#FFF');
 		$('body').addClass('peach-after');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
+		$(this).fadeOut('slow').delay(900).promise().done(function(){
 			$('#bannar_coming').fadeIn('slow');
 		});
 	});
 
 	$('#bannar_coming').click(function(){
 		$('.bannar').addClass('bannar-come');
-		$(this).fadeOut('slow').delay(6000).promise().done(function(){
+		$(this).fadeOut('slow').delay(1000).promise().done(function(){
 			$('#balloons_flying').fadeIn('slow');
 		});
 	});
 
-	function randomBalloonPos() {
-		var edge = 8;
-		var bw = 100;
-		var bh = 183;
-		var maxLeft = Math.max(edge, $(window).width() - bw - edge);
-		var maxBottom = Math.max(edge, $(window).height() - bh - 80);
-		return {
-			left: edge + Math.random() * (maxLeft - edge),
-			bottom: edge + Math.random() * Math.max(edge, maxBottom - edge)
-		};
+	var balloonsLifted = false;
+	if (!$('.candle-flash').length) {
+		$('body').append('<div class="candle-flash"></div>');
 	}
-	function placeWishBalloons(animated) {
+	function balloonIds() {
+		if ($('#b11').length) {
+			return ['#b11','#b22','#b33','#b44','#b55','#b66','#b77'];
+		}
+		return ['#b1','#b2','#b3','#b4','#b5','#b6','#b7'];
+	}
+	function liftBalloons(animated) {
 		var vw = $(window).width();
-		var ids = ['#b11','#b22','#b33','#b44','#b55','#b66','#b77'];
-		var propsList;
+		var vh = $(window).height();
+		var ids = balloonIds();
+		var count = ids.length;
+		var balloonW;
+		var balloonH;
+		var top;
+		var lefts = [];
 		if (vw >= 720) {
-			var center = vw / 2;
-			var offsets = [-350, -250, -150, -50, 50, 150, 250];
+			balloonW = 100;
+			balloonH = 183;
 			$('.balloons').css({width: '', height: '', backgroundSize: ''});
 			$('.balloons h2').css('font-size', '');
-			propsList = offsets.map(function (offset) {
-				return {top: 240, left: center + offset};
+			var center = vw / 2;
+			[-350, -250, -150, -50, 50, 150, 250].forEach(function (offset) {
+				lefts.push(center + offset);
 			});
+			top = 210;
 		} else {
-			var count = ids.length;
-			var balloonW = Math.min(64, Math.floor((vw - 12) / count));
-			var step = (vw - 12 - balloonW) / (count - 1);
-			var balloonH = Math.round(balloonW * 1.83);
+			balloonW = Math.min(56, Math.floor((vw - 16) / count));
+			balloonH = Math.round(balloonW * 1.83);
 			$('.balloons').css({
 				width: balloonW + 'px',
 				height: balloonH + 'px',
@@ -92,112 +96,54 @@ $('document').ready(function(){
 			});
 			$('.balloons h2').css('font-size', Math.max(12, Math.floor(balloonW * 0.42)) + 'px');
 			var banner = document.querySelector('.bannar');
-			var bannerBottom = banner ? banner.getBoundingClientRect().bottom : 100;
-			var top = bannerBottom > 40 ? Math.min(bannerBottom + 4, 150) : 96;
-			propsList = [];
+			var bannerBottom = banner ? banner.getBoundingClientRect().bottom : 88;
+			top = bannerBottom > 24 ? bannerBottom + 2 : 86;
+			var step = (vw - 8 - balloonW) / (count - 1);
 			for (var i = 0; i < count; i++) {
-				propsList.push({top: top, left: 6 + i * step});
+				lefts.push(4 + i * step);
 			}
 		}
 		ids.forEach(function (id, i) {
-			$(id).css('bottom', 'auto');
+			var spot = {
+				left: lefts[i],
+				bottom: Math.max(8, vh - top - balloonH)
+			};
+			var $el = $(id);
+			$el.stop(true);
 			if (animated) {
-				$(id).stop().animate(propsList[i], 500);
+				$el.animate(spot, 1600);
 			} else {
-				$(id).css(propsList[i]);
+				$el.css(spot);
 			}
-		});
-	}
-	function loopOne() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b1').animate({left:randleft,bottom:randtop},10000,function(){
-			loopOne();
-		});
-	}
-	function loopTwo() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b2').animate({left:randleft,bottom:randtop},10000,function(){
-			loopTwo();
-		});
-	}
-	function loopThree() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b3').animate({left:randleft,bottom:randtop},10000,function(){
-			loopThree();
-		});
-	}
-	function loopFour() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b4').animate({left:randleft,bottom:randtop},10000,function(){
-			loopFour();
-		});
-	}
-	function loopFive() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b5').animate({left:randleft,bottom:randtop},10000,function(){
-			loopFive();
-		});
-	}
-
-	function loopSix() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b6').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSix();
-		});
-	}
-	function loopSeven() {
-		var pos = randomBalloonPos();
-		var randleft = pos.left;
-		var randtop = pos.bottom;
-		$('#b7').animate({left:randleft,bottom:randtop},10000,function(){
-			loopSeven();
 		});
 	}
 
 	$('#balloons_flying').click(function(){
-		$('.balloon-border').animate({top:-500},8000);
-		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
-		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b3').addClass('balloons-rotate-behaviour-two');
-		// $('#b4').addClass('balloons-rotate-behaviour-one');
-		// $('#b5').addClass('balloons-rotate-behaviour-one');
-		// $('#b6').addClass('balloons-rotate-behaviour-two');
-		// $('#b7').addClass('balloons-rotate-behaviour-one');
-		loopOne();
-		loopTwo();
-		loopThree();
-		loopFour();
-		loopFive();
-		loopSix();
-		loopSeven();
-		
-		$(this).fadeOut('slow').delay(5000).promise().done(function(){
+		$('.balloon-border').animate({top: -500, opacity: 0}, 1400);
+		balloonsLifted = true;
+		liftBalloons(true);
+		$(this).fadeOut('slow').delay(1100).promise().done(function(){
 			$('#cake_fadein').fadeIn('slow');
 		});
-	});	
+	});
 
 	$('#cake_fadein').click(function(){
-		$('.cake').fadeIn('slow');
-		$(this).fadeOut('slow').delay(3000).promise().done(function(){
+		$('.cake').fadeIn(700);
+		$(this).fadeOut('slow').delay(800).promise().done(function(){
 			$('#light_candle').fadeIn('slow');
 		});
 	});
 
 	$('#light_candle').click(function(){
-		$('.fuego').fadeIn('slow');
-		$(this).fadeOut('slow').promise().done(function(){
+		$('.fuego').fadeIn(450);
+		$('.cake').addClass('candle-lit');
+		var flash = $('.candle-flash');
+		flash.removeClass('bloom');
+		if (flash[0]) {
+			void flash[0].offsetWidth;
+		}
+		flash.addClass('bloom');
+		$(this).fadeOut('slow').delay(600).promise().done(function(){
 			$('#wish_message').fadeIn('slow');
 		});
 	});
@@ -212,7 +158,7 @@ $('document').ready(function(){
 		$('#b5').attr('id','b55')
 		$('#b6').attr('id','b66')
 		$('#b7').attr('id','b77')
-		placeWishBalloons(true);
+		liftBalloons(true);
 		$('.balloons').css('opacity','1');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){

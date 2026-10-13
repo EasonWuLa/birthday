@@ -3,6 +3,17 @@ $(window).load(function(){
 	$('.container').fadeIn('fast');
 });
 $('document').ready(function(){
+		var audio = $('.song')[0];
+		if (audio) {
+			audio.loop = true;
+			audio.addEventListener('ended', function () {
+				audio.currentTime = 0;
+				var again = audio.play();
+				if (again && again.catch) {
+					again.catch(function () {});
+				}
+			});
+		}
 		$(window).resize(function(){
 			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
 			if ($('#b11').length) {
@@ -24,6 +35,7 @@ $('document').ready(function(){
 	});
 	$('#play').click(function(){
 		var audio = $('.song')[0];
+		audio.loop = true;
         audio.play();
         $('#bulb_yellow').addClass('bulb-glow-yellow-after');
 		$('#bulb_red').addClass('bulb-glow-red-after');
@@ -201,7 +213,7 @@ $('document').ready(function(){
 		$('#b6').attr('id','b66')
 		$('#b7').attr('id','b77')
 		placeWishBalloons(true);
-		$('.balloons').css('opacity','0.9');
+		$('.balloons').css('opacity','1');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){
 			$('#story').fadeIn('slow');

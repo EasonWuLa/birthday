@@ -290,7 +290,8 @@ $('document').ready(function(){
 			var page = pages.eq(pageIndex);
 			var lines = linesOf(page[0]);
 			var caption = page.find('.album-caption');
-			caption.stop(true, true).css('opacity', 0).text(lines[lineIndex] || '').animate({opacity: 1}, 360);
+			caption.stop(true, true).css('opacity', '');
+			caption.text(lines[lineIndex] || '');
 			lineIndex += 1;
 			if (lineIndex < lines.length) {
 				setTimeout(showLine, hold);
@@ -298,8 +299,6 @@ $('document').ready(function(){
 			}
 			if (pageIndex >= pages.length - 1) {
 				setTimeout(function () {
-					caption.stop(true, true).animate({opacity: 0}, 700);
-					page.find('.album-index').fadeOut(700);
 					page.addClass('closed');
 				}, hold);
 				return;

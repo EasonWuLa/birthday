@@ -24,7 +24,7 @@ $(function () {
         img.src = images[p];
         img.alt = lines[0] || "";
         caption.className = "album-caption";
-        caption.textContent = lines[0] || "";
+        caption.textContent = "";
         num.className = "album-index";
         num.textContent = (p + 1) + " / " + pageCount;
         sheet.appendChild(img);
@@ -34,7 +34,7 @@ $(function () {
             var close = document.createElement("div");
             close.className = "album-close";
             close.innerHTML = '<div class="album-close-name"></div><div class="album-close-wish">生日快乐</div><div class="album-close-stay">我就在这里</div>';
-            close.querySelector(".album-close-name").textContent = "李梦云";
+            close.querySelector(".album-close-name").textContent = "梦云";
             sheet.appendChild(close);
         }
         page.appendChild(sheet);

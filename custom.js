@@ -1,17 +1,12 @@
 // 霸都丶傲天 2019.10.10
 $(function () {
     var images = config.albumImages || [];
-    var texts = config.texts || [];
+    var pages = config.albumPages || [];
     var pageCount = images.length || 1;
-    var base = Math.floor(texts.length / pageCount);
-    var extra = texts.length % pageCount;
     var stage = document.createElement("div");
-    var cursor = 0;
     stage.className = "album-stage";
     for (var p = 0; p < pageCount; p++) {
-        var count = base + (p < extra ? 1 : 0);
-        var lines = texts.slice(cursor, cursor + count);
-        cursor += count;
+        var lines = pages[p] || [];
         var page = document.createElement("div");
         var sheet = document.createElement("div");
         var img = document.createElement("img");
